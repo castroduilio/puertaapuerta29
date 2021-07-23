@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css">
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/zona28_0.js"></script>
+        <script src="data/calleszona28_1.js"></script>
+        <script src="data/puntoszona28_2.js"></script>
+        <script src="data/phzona28_3.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:21, minZoom:15
+        }).fitBounds([[-32.91547461571758,-68.86127362371178],[-32.907375532234504,-68.84432611868914]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_zona28_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">padron</th>\
+                        <td>' + (feature.properties['padron'] !== null ? autolinker.link(feature.properties['padron'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_zona28_0_0() {
+            return {
+                pane: 'pane_zona28_0',
+                opacity: 1,
+                color: 'rgba(31,120,180,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(196,60,57,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_zona28_0');
+        map.getPane('pane_zona28_0').style.zIndex = 400;
+        map.getPane('pane_zona28_0').style['mix-blend-mode'] = 'normal';
+        var layer_zona28_0 = new L.geoJson(json_zona28_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_zona28_0',
+            layerName: 'layer_zona28_0',
+            pane: 'pane_zona28_0',
+            onEachFeature: pop_zona28_0,
+            style: style_zona28_0_0,
+        });
+        bounds_group.addLayer(layer_zona28_0);
+        map.addLayer(layer_zona28_0);
+        function pop_calleszona28_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">nomb</th>\
+                        <td>' + (feature.properties['nomb'] !== null ? autolinker.link(feature.properties['nomb'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">fuente</th>\
+                        <td>' + (feature.properties['fuente'] !== null ? autolinker.link(feature.properties['fuente'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_calleszona28_1_0() {
+            return {
+                pane: 'pane_calleszona28_1',
+                opacity: 1,
+                color: 'rgba(178,223,138,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 8.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_calleszona28_1');
+        map.getPane('pane_calleszona28_1').style.zIndex = 401;
+        map.getPane('pane_calleszona28_1').style['mix-blend-mode'] = 'normal';
+        var layer_calleszona28_1 = new L.geoJson(json_calleszona28_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_calleszona28_1',
+            layerName: 'layer_calleszona28_1',
+            pane: 'pane_calleszona28_1',
+            onEachFeature: pop_calleszona28_1,
+            style: style_calleszona28_1_0,
+        });
+        bounds_group.addLayer(layer_calleszona28_1);
+        map.addLayer(layer_calleszona28_1);
+        function pop_puntoszona28_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">padron</th>\
+                        <td>' + (feature.properties['padron'] !== null ? autolinker.link(feature.properties['padron'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CUIT</th>\
+                        <td>' + (feature.properties['CUIT'] !== null ? autolinker.link(feature.properties['CUIT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TITULAR</th>\
+                        <td>' + (feature.properties['TITULAR'] !== null ? autolinker.link(feature.properties['TITULAR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_CALLE</th>\
+                        <td>' + (feature.properties['REAL_CALLE'] !== null ? autolinker.link(feature.properties['REAL_CALLE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_NRO</th>\
+                        <td>' + (feature.properties['REAL_NRO'] !== null ? autolinker.link(feature.properties['REAL_NRO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_PISO</th>\
+                        <td>' + (feature.properties['REAL_PISO'] !== null ? autolinker.link(feature.properties['REAL_PISO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_OFICI</th>\
+                        <td>' + (feature.properties['REAL_OFICI'] !== null ? autolinker.link(feature.properties['REAL_OFICI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_DPTO</th>\
+                        <td>' + (feature.properties['REAL_DPTO'] !== null ? autolinker.link(feature.properties['REAL_DPTO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_MZA</th>\
+                        <td>' + (feature.properties['REAL_MZA'] !== null ? autolinker.link(feature.properties['REAL_MZA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_CASA</th>\
+                        <td>' + (feature.properties['REAL_CASA'] !== null ? autolinker.link(feature.properties['REAL_CASA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_KM</th>\
+                        <td>' + (feature.properties['REAL_KM'] !== null ? autolinker.link(feature.properties['REAL_KM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_LOTE</th>\
+                        <td>' + (feature.properties['REAL_LOTE'] !== null ? autolinker.link(feature.properties['REAL_LOTE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_MONOB</th>\
+                        <td>' + (feature.properties['REAL_MONOB'] !== null ? autolinker.link(feature.properties['REAL_MONOB'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_puntoszona28_2_0() {
+            return {
+                pane: 'pane_puntoszona28_2',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,30,42,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_puntoszona28_2');
+        map.getPane('pane_puntoszona28_2').style.zIndex = 402;
+        map.getPane('pane_puntoszona28_2').style['mix-blend-mode'] = 'normal';
+        var layer_puntoszona28_2 = new L.geoJson(json_puntoszona28_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_puntoszona28_2',
+            layerName: 'layer_puntoszona28_2',
+            pane: 'pane_puntoszona28_2',
+            onEachFeature: pop_puntoszona28_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_puntoszona28_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_puntoszona28_2);
+        function pop_phzona28_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">NOMEN_21</th>\
+                        <td>' + (feature.properties['NOMEN_21'] !== null ? autolinker.link(feature.properties['NOMEN_21'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PADRON MUN</th>\
+                        <td>' + (feature.properties['PADRON MUN'] !== null ? autolinker.link(feature.properties['PADRON MUN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TITULAR</th>\
+                        <td>' + (feature.properties['TITULAR'] !== null ? autolinker.link(feature.properties['TITULAR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_CALLE</th>\
+                        <td>' + (feature.properties['REAL_CALLE'] !== null ? autolinker.link(feature.properties['REAL_CALLE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_NRO</th>\
+                        <td>' + (feature.properties['REAL_NRO'] !== null ? autolinker.link(feature.properties['REAL_NRO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_PISO</th>\
+                        <td>' + (feature.properties['REAL_PISO'] !== null ? autolinker.link(feature.properties['REAL_PISO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_OFICI</th>\
+                        <td>' + (feature.properties['REAL_OFICI'] !== null ? autolinker.link(feature.properties['REAL_OFICI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_DPTO</th>\
+                        <td>' + (feature.properties['REAL_DPTO'] !== null ? autolinker.link(feature.properties['REAL_DPTO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_MZA</th>\
+                        <td>' + (feature.properties['REAL_MZA'] !== null ? autolinker.link(feature.properties['REAL_MZA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_CASA</th>\
+                        <td>' + (feature.properties['REAL_CASA'] !== null ? autolinker.link(feature.properties['REAL_CASA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_KM</th>\
+                        <td>' + (feature.properties['REAL_KM'] !== null ? autolinker.link(feature.properties['REAL_KM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_LOTE</th>\
+                        <td>' + (feature.properties['REAL_LOTE'] !== null ? autolinker.link(feature.properties['REAL_LOTE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REAL_MONOB</th>\
+                        <td>' + (feature.properties['REAL_MONOB'] !== null ? autolinker.link(feature.properties['REAL_MONOB'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_phzona28_3_0() {
+            return {
+                pane: 'pane_phzona28_3',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(61,128,53,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(84,176,74,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_phzona28_3');
+        map.getPane('pane_phzona28_3').style.zIndex = 403;
+        map.getPane('pane_phzona28_3').style['mix-blend-mode'] = 'normal';
+        var layer_phzona28_3 = new L.geoJson(json_phzona28_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_phzona28_3',
+            layerName: 'layer_phzona28_3',
+            pane: 'pane_phzona28_3',
+            onEachFeature: pop_phzona28_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_phzona28_3_0(feature));
+            },
+        });
+        var cluster_phzona28_3 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_phzona28_3.addLayer(layer_phzona28_3);
+
+        bounds_group.addLayer(layer_phzona28_3);
+        cluster_phzona28_3.addTo(map);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/phzona28_3.png" /> ph zona 28': cluster_phzona28_3,'<img src="legend/puntoszona28_2.png" /> puntos zona 28': layer_puntoszona28_2,'<img src="legend/calleszona28_1.png" /> calles zona 28': layer_calleszona28_1,'<img src="legend/zona28_0.png" /> zona 28': layer_zona28_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
